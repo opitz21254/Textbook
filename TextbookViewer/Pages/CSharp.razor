@@ -1,0 +1,19 @@
+@page "/csharp"
+@inject IJSRuntime JS
+
+
+<h3>C# Textbook</h3>
+
+<div id="pdfViewer" style="width: 100%; height: 800px;"></div>
+
+@code {
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initializePdfViewer", "textbooks/csharp.pdf");
+        }
+    }
+
+}
